@@ -8,14 +8,27 @@
             :project-to-alias {"development" "dev"}
             :ns-to-lib {}}
 
- :aliases  {:dev {:extra-paths ["development/src"]
-                  :extra-deps {org.clojure/clojure {:mvn/version "1.10.1"}
-                               org.clojure/tools.deps.alpha {:mvn/version "0.8.695"}}}
+ :aliases  {:dev {:extra-paths ["development/src"
 
-            :test {:extra-paths []}
+                                "components/log/src"
+                                "components/log/resources"
+                                "components/scramble/src"
+                                "components/scramble/resources"
+
+                                "bases/rest-api/src"
+                                "bases/rest-api/resources"]
+                  :extra-deps {org.clojure/clojure {:mvn/version "1.10.3"}
+                               org.clojure/tools.deps.alpha {:mvn/version "0.8.695"}
+                               com.taoensso/timbre {:mvn/version "4.10.0"}
+                               compojure/compojure {:mvn/version "1.6.0"}
+                               ring-logger-timbre/ring-logger-timbre {:mvn/version "0.7.6"}
+                               ring/ring-jetty-adapter {:mvn/version "1.9.2"}
+                               ring/ring-json {:mvn/version "0.5.1"}}}
+
+            :test {:extra-paths ["./components/scramble/test"]}
 
             :poly {:main-opts ["-m" "polylith.clj.core.poly-cli.core"]
                    :extra-deps {polyfy/polylith
                                 {:git/url   "https://github.com/polyfy/polylith"
-                                 :sha       "INSERT_LATEST_SHA_HERE"
+                                 :sha       "76936c752fb5b729c216b23d92c8a8d71cfdc92f"
                                  :deps/root "projects/poly"}}}}}

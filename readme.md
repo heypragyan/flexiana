@@ -1,13 +1,24 @@
-<img src="logo.png" width="30%" alt="Polylith" id="logo">
+# Flexiana Project
 
-The Polylith documentation can be found here:
+The project follows polylith architecture. 
 
-- The [high-level documentation](https://polylith.gitbook.io/polylith)
-- The [Polylith Tool documentation](https://github.com/polyfy/polylith)
-- The [RealWorld example app documentation](https://github.com/furkan3ayraktar/clojure-polylith-realworld-example-app)
+## Development Flow
 
-You can also get in touch with the Polylith Team via our [forum](https://polylith.freeflarum.com) or on [Slack](https://clojurians.slack.com/archives/C013B7MQHJQ).
+### Start Development Server
+``` sh
+clj -M:dev # Launch repl
+user> (start! 8090) # Starts the development server
+```
 
-<h1>flexiana</h1>
+``` sh
+curl http://localhost:8090/api/scrambles/:str-1/:str-2
+```
 
-<p>Add your workspace documentation here...</p>
+
+### Start Frontend
+
+``` sh
+npx shadow-cljs watch main
+```
+
+### Production Build
