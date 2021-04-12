@@ -24,6 +24,12 @@
                                ring-logger-timbre/ring-logger-timbre {:mvn/version "0.7.6"}
                                ring/ring-jetty-adapter {:mvn/version "1.9.2"}
                                ring/ring-json {:mvn/version "0.5.1"}}}
+            :cljs {:extra-paths ["bases/app/src"]
+                   :extra-deps {org.clojure/core.async {:mvn/version "0.4.474"}
+                                reagent/reagent {:mvn/version "1.0.0"}
+                                cljs-http/cljs-http {:mvn/version "0.1.46"}
+                                thheller/shadow-cljs {:mvn/version "2.11.10"}
+                                binaryage/devtools {:mvn/version "1.0.2"}}}
 
             :test {:extra-paths ["./components/scramble/test"]}
 

@@ -12,14 +12,12 @@
           {:status 500
            :body   {:errors {:other [message]}}})))))
 
-(defn create-access-control-header [origin]
-  (let [allowed-origins (or  "*")
-        origins (str/split allowed-origins #",")
-        allowed-origin (some #{origin} origins)]
-    {"Access-Control-Allow-Origin"  allowed-origin
-     "Access-Control-Allow-Methods" "POST, GET, PUT, OPTIONS, DELETE"
-     "Access-Control-Max-Age"       "3600"
-     "Access-Control-Allow-Headers" "Authorization, Content-Type, x-requested-with"}))
+(defn create-access-control-header [_]
+  {"Access-Control-Allow-Origin"  "http://localhost:8000"
+   "Access-Control-Allow-Methods" "POST, GET, PUT, OPTIONS, DELETE"
+   "Access-Control-Max-Age"       "3600"
+   "Access-Control-Allow-Headers" "*"
+   "Access-Control-Allow-Credentials" "true"})
 
 (defn wrap-cors [handler]
   (fn [req]

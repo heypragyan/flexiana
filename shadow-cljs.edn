@@ -1,0 +1,17 @@
+{:deps     {:aliases [:dev :cljs :test]}
+ :nrepl    {:port 9000}
+ :http     {:port 9630}
+ :dev-http {8000 "bases/app/resources/public"}
+ :jvm-opts ["-Xmx2G"]
+ :builds   {:main
+            {:target           :browser
+             :output-dir       "bases/app/resources/public/js"
+             :asset-path       "/js"
+             :modules          {:shared {}
+                                :main   {:init-fn    com.flexiana.app.core/start
+                                         :entries    [com.flexiana.app.core]
+                                         :depends-on #{:shared}}}
+             :compiler-options {:output-feature-set :es8
+                                :output-wrapper false}
+             :devtools         {:after-load com.flexiana.app.core/restart
+                                :preloads   []}}}}

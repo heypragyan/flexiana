@@ -21,4 +21,6 @@ curl http://localhost:8090/api/scrambles/:str-1/:str-2
 npx shadow-cljs watch main
 ```
 
+Open `http://localhost:8000/` in browser
+
 ### Production Build
